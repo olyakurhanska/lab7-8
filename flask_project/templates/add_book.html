@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Запропонувати книгу{% endblock %}
+
+{% block content %}
+<h2>Запропонувати книгу</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+<p>{{ message }}</p>
+    {% endfor %}
+{% endwith %}
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    {% for field in form if field.name != 'csrf_token' %}
+    <p>
+        {{ field.label }}
+        {{ field }}
+
+        {% for error in field.errors %}
+        <span style="color: red;">
+            {{ error }}
+        </span>
+        {% endfor %}
+    </p>
+    {% endfor %}
+
+    <button type="submit">Надіслати</button>
+</form>
+{% endblock %}

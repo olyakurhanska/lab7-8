@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Головна — Каталог книг{% endblock %}
+
+{% block content %}
+<h2>{{ title|upper }}</h2>
+<p>Ласкаво просимо до нашого каталогу!</p>
+<p>Кількість книг: {{ count }}</p>
+
+    {% if books %}
+<h3>Наші книги</h3>
+<ul>
+    {% for book in books %}
+    <li>{{ book }}</li>
+    {% endfor %}
+</ul>
+    {% else %}
+<p>Книг поки немає.</p>
+    {% endif %}
+
+<p>Подвоєна кількість книг: {{ count * 2 }}</p>
+{% endblock %}

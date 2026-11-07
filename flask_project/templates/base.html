@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Каталог книг{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Каталог книг</h1>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Головна</a>
+            <a href="{{ url_for('book_list') }}">Список книг</a>
+            <a href="{{ url_for('add_book') }}">Запропонувати книгу</a>
+        </nav>
+
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>Каталог книг © {{ current_year }}</p>
+    </footer>
+</body>
+</html>
